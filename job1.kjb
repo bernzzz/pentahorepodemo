@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<transformation>
-  <info>
-    <name>testtransform</name>
-    <description/>
-    <extended_description/>
-    <trans_version/>
-    <trans_type>Normal</trans_type>
-    <directory>&#x2f;</directory>
+<job>
+  <name>job1</name>
+  <description/>
+  <extended_description/>
+  <job_version/>
+  <job_status>0</job_status>
+  <directory>&#x2f;</directory>
+  <created_user>-</created_user>
+  <created_date>2017&#x2f;04&#x2f;08 12&#x3a;14&#x3a;57.921</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2017&#x2f;04&#x2f;08 12&#x3a;14&#x3a;57.921</modified_date>
     <parameters>
     </parameters>
-    <log>
-      <trans-log-table>
+    <slaveservers>
+    </slaveservers>
+      <job-log-table>
         <connection/>
         <schema/>
         <table/>
@@ -18,9 +22,9 @@
         <interval/>
         <timeout_days/>
         <field>
-          <id>ID_BATCH</id>
+          <id>ID_JOB</id>
           <enabled>Y</enabled>
-          <name>ID_BATCH</name>
+          <name>ID_JOB</name>
         </field>
         <field>
           <id>CHANNEL_ID</id>
@@ -28,9 +32,9 @@
           <name>CHANNEL_ID</name>
         </field>
         <field>
-          <id>TRANSNAME</id>
+          <id>JOBNAME</id>
           <enabled>Y</enabled>
-          <name>TRANSNAME</name>
+          <name>JOBNAME</name>
         </field>
         <field>
           <id>STATUS</id>
@@ -41,37 +45,31 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject/>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject/>
         </field>
         <field>
           <id>ERRORS</id>
@@ -119,16 +117,20 @@
           <name>EXECUTING_USER</name>
         </field>
         <field>
+          <id>START_JOB_ENTRY</id>
+          <enabled>N</enabled>
+          <name>START_JOB_ENTRY</name>
+        </field>
+        <field>
           <id>CLIENT</id>
           <enabled>N</enabled>
           <name>CLIENT</name>
         </field>
-      </trans-log-table>
-      <perf-log-table>
+      </job-log-table>
+      <jobentry-log-table>
         <connection/>
         <schema/>
         <table/>
-        <interval/>
         <timeout_days/>
         <field>
           <id>ID_BATCH</id>
@@ -136,29 +138,24 @@
           <name>ID_BATCH</name>
         </field>
         <field>
-          <id>SEQ_NR</id>
+          <id>CHANNEL_ID</id>
           <enabled>Y</enabled>
-          <name>SEQ_NR</name>
+          <name>CHANNEL_ID</name>
         </field>
         <field>
-          <id>LOGDATE</id>
+          <id>LOG_DATE</id>
           <enabled>Y</enabled>
-          <name>LOGDATE</name>
+          <name>LOG_DATE</name>
         </field>
         <field>
-          <id>TRANSNAME</id>
+          <id>JOBNAME</id>
           <enabled>Y</enabled>
           <name>TRANSNAME</name>
         </field>
         <field>
-          <id>STEPNAME</id>
+          <id>JOBENTRYNAME</id>
           <enabled>Y</enabled>
           <name>STEPNAME</name>
-        </field>
-        <field>
-          <id>STEP_COPY</id>
-          <enabled>Y</enabled>
-          <name>STEP_COPY</name>
         </field>
         <field>
           <id>LINES_READ</id>
@@ -196,16 +193,31 @@
           <name>ERRORS</name>
         </field>
         <field>
-          <id>INPUT_BUFFER_ROWS</id>
+          <id>RESULT</id>
           <enabled>Y</enabled>
-          <name>INPUT_BUFFER_ROWS</name>
+          <name>RESULT</name>
         </field>
         <field>
-          <id>OUTPUT_BUFFER_ROWS</id>
+          <id>NR_RESULT_ROWS</id>
           <enabled>Y</enabled>
-          <name>OUTPUT_BUFFER_ROWS</name>
+          <name>NR_RESULT_ROWS</name>
         </field>
-      </perf-log-table>
+        <field>
+          <id>NR_RESULT_FILES</id>
+          <enabled>Y</enabled>
+          <name>NR_RESULT_FILES</name>
+        </field>
+        <field>
+          <id>LOG_FIELD</id>
+          <enabled>N</enabled>
+          <name>LOG_FIELD</name>
+        </field>
+        <field>
+          <id>COPY_NR</id>
+          <enabled>N</enabled>
+          <name>COPY_NR</name>
+        </field>
+      </jobentry-log-table>
       <channel-log-table>
         <connection/>
         <schema/>
@@ -272,174 +284,167 @@
           <name>ROOT_CHANNEL_ID</name>
         </field>
       </channel-log-table>
-      <step-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+<checkpoint-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<max_nr_retries/>
+<run_retry_period/>
+<namespace_parameter/>
+<save_parameters>Y</save_parameters>
+<save_result_rows>Y</save_result_rows>
+<save_result_files>Y</save_result_files>
         <field>
-          <id>ID_BATCH</id>
+          <id>ID_JOB_RUN</id>
           <enabled>Y</enabled>
-          <name>ID_BATCH</name>
+          <name>ID_JOB_RUN</name>
         </field>
         <field>
-          <id>CHANNEL_ID</id>
+          <id>ID_JOB</id>
           <enabled>Y</enabled>
-          <name>CHANNEL_ID</name>
+          <name>ID_JOB</name>
         </field>
         <field>
-          <id>LOG_DATE</id>
+          <id>JOBNAME</id>
           <enabled>Y</enabled>
-          <name>LOG_DATE</name>
+          <name>JOBNAME</name>
         </field>
         <field>
-          <id>TRANSNAME</id>
+          <id>NAMESPACE</id>
           <enabled>Y</enabled>
-          <name>TRANSNAME</name>
+          <name>NAMESPACE</name>
         </field>
         <field>
-          <id>STEPNAME</id>
+          <id>CHECKPOINT_NAME</id>
           <enabled>Y</enabled>
-          <name>STEPNAME</name>
+          <name>CHECKPOINT_NAME</name>
         </field>
         <field>
-          <id>STEP_COPY</id>
+          <id>CHECKPOINT_COPYNR</id>
           <enabled>Y</enabled>
-          <name>STEP_COPY</name>
+          <name>CHECKPOINT_COPYNR</name>
         </field>
         <field>
-          <id>LINES_READ</id>
+          <id>ATTEMPT_NR</id>
           <enabled>Y</enabled>
-          <name>LINES_READ</name>
+          <name>ATTEMPT_NR</name>
         </field>
         <field>
-          <id>LINES_WRITTEN</id>
+          <id>JOB_RUN_START_DATE</id>
           <enabled>Y</enabled>
-          <name>LINES_WRITTEN</name>
+          <name>JOB_RUN_START_DATE</name>
         </field>
         <field>
-          <id>LINES_UPDATED</id>
+          <id>LOGDATE</id>
           <enabled>Y</enabled>
-          <name>LINES_UPDATED</name>
+          <name>LOGDATE</name>
         </field>
         <field>
-          <id>LINES_INPUT</id>
+          <id>RESULT_XML</id>
           <enabled>Y</enabled>
-          <name>LINES_INPUT</name>
+          <name>RESULT_XML</name>
         </field>
         <field>
-          <id>LINES_OUTPUT</id>
+          <id>PARAMETER_XML</id>
           <enabled>Y</enabled>
-          <name>LINES_OUTPUT</name>
+          <name>PARAMETER_XML</name>
         </field>
-        <field>
-          <id>LINES_REJECTED</id>
-          <enabled>Y</enabled>
-          <name>LINES_REJECTED</name>
-        </field>
-        <field>
-          <id>ERRORS</id>
-          <enabled>Y</enabled>
-          <name>ERRORS</name>
-        </field>
-        <field>
-          <id>LOG_FIELD</id>
-          <enabled>N</enabled>
-          <name>LOG_FIELD</name>
-        </field>
-      </step-log-table>
-      <metrics-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
-        <field>
-          <id>ID_BATCH</id>
-          <enabled>Y</enabled>
-          <name>ID_BATCH</name>
-        </field>
-        <field>
-          <id>CHANNEL_ID</id>
-          <enabled>Y</enabled>
-          <name>CHANNEL_ID</name>
-        </field>
-        <field>
-          <id>LOG_DATE</id>
-          <enabled>Y</enabled>
-          <name>LOG_DATE</name>
-        </field>
-        <field>
-          <id>METRICS_DATE</id>
-          <enabled>Y</enabled>
-          <name>METRICS_DATE</name>
-        </field>
-        <field>
-          <id>METRICS_CODE</id>
-          <enabled>Y</enabled>
-          <name>METRICS_CODE</name>
-        </field>
-        <field>
-          <id>METRICS_DESCRIPTION</id>
-          <enabled>Y</enabled>
-          <name>METRICS_DESCRIPTION</name>
-        </field>
-        <field>
-          <id>METRICS_SUBJECT</id>
-          <enabled>Y</enabled>
-          <name>METRICS_SUBJECT</name>
-        </field>
-        <field>
-          <id>METRICS_TYPE</id>
-          <enabled>Y</enabled>
-          <name>METRICS_TYPE</name>
-        </field>
-        <field>
-          <id>METRICS_VALUE</id>
-          <enabled>Y</enabled>
-          <name>METRICS_VALUE</name>
-        </field>
-      </metrics-log-table>
-    </log>
-    <maxdate>
-      <connection/>
-      <table/>
-      <field/>
-      <offset>0.0</offset>
-      <maxdiff>0.0</maxdiff>
-    </maxdate>
-    <size_rowset>10000</size_rowset>
-    <sleep_time_empty>50</sleep_time_empty>
-    <sleep_time_full>50</sleep_time_full>
-    <unique_connections>N</unique_connections>
-    <feedback_shown>Y</feedback_shown>
-    <feedback_size>50000</feedback_size>
-    <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file/>
-    <capture_step_performance>N</capture_step_performance>
-    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
-    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
-    <dependencies>
-    </dependencies>
-    <partitionschemas>
-    </partitionschemas>
-    <slaveservers>
-    </slaveservers>
-    <clusterschemas>
-    </clusterschemas>
-    <created_user>-</created_user>
-    <created_date>2017&#x2f;04&#x2f;08 15&#x3a;10&#x3a;51.625</created_date>
-    <modified_user>-</modified_user>
-    <modified_date>2017&#x2f;04&#x2f;08 15&#x3a;10&#x3a;51.625</modified_date>
-    <key_for_session_key/>
-    <is_key_private>N</is_key_private>
-  </info>
+</checkpoint-log-table>
+   <pass_batchid>N</pass_batchid>
+   <shared_objects_file/>
+  <entries>
+    <entry>
+      <name>START</name>
+      <description/>
+      <type>SPECIAL</type>
+      <start>Y</start>
+      <dummy>N</dummy>
+      <repeat>N</repeat>
+      <schedulerType>0</schedulerType>
+      <intervalSeconds>0</intervalSeconds>
+      <intervalMinutes>60</intervalMinutes>
+      <hour>12</hour>
+      <minutes>0</minutes>
+      <weekDay>1</weekDay>
+      <DayOfMonth>1</DayOfMonth>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>208</xloc>
+      <yloc>160</yloc>
+    </entry>
+    <entry>
+      <name>Transformation</name>
+      <description/>
+      <type>TRANS</type>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>&#x2f;home&#x2f;bernard&#x2f;Desktop&#x2f;pentahorepodemo&#x2f;trans1.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>528</xloc>
+      <yloc>160</yloc>
+    </entry>
+    <entry>
+      <name>Create a folder</name>
+      <description/>
+      <type>CREATE_FOLDER</type>
+      <foldername>&#x2f;home&#x2f;bernard&#x2f;master</foldername>
+      <fail_of_folder_exists>N</fail_of_folder_exists>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>384</xloc>
+      <yloc>160</yloc>
+    </entry>
+  </entries>
+  <hops>
+    <hop>
+      <from>START</from>
+      <to>Create a folder</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Create a folder</from>
+      <to>Transformation</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+  </hops>
   <notepads>
   </notepads>
-  <order>
-  </order>
-  <step_error_handling>
-  </step_error_handling>
-  <slave-step-copy-partition-distribution>
-  </slave-step-copy-partition-distribution>
-  <slave_transformation>N</slave_transformation>
-</transformation>
+<attributes><group><name>JobRestart</name>
+<attribute><key>UniqueConnections</key>
+<value>N</value>
+</attribute></group></attributes>
+</job>

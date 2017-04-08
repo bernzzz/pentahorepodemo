@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>getting_started_transform</name>
+    <name>testtransform</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -427,21 +427,21 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2017&#x2f;04&#x2f;05 23&#x3a;28&#x3a;44.304</created_date>
+    <created_date>2017&#x2f;04&#x2f;08 11&#x3a;48&#x3a;44.171</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2017&#x2f;04&#x2f;05 23&#x3a;28&#x3a;44.304</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <modified_date>2017&#x2f;04&#x2f;08 11&#x3a;48&#x3a;44.171</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>sample_data</name>
+    <name>sampledata</name>
     <server>localhost</server>
     <type>HYPERSONIC</type>
     <access>Native</access>
     <database>sampledata</database>
-    <port>9001</port>
+    <port>9002</port>
     <username>pentaho_admin</username>
     <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
     <servername/>
@@ -451,7 +451,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>9001</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>9002</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>Y</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -461,13 +461,13 @@
   </connection>
   <order>
     <hop>
-      <from>Sales_data</from>
-      <to>Write to Database</to>
+      <from>CSV file input</from>
+      <to>Table output</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Sales_data</name>
+    <name>CSV file input</name>
     <type>CsvInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -477,7 +477,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>&#x2f;home&#x2f;bernard&#x2f;Pentaho&#x2f;design-tools&#x2f;data-integration&#x2f;samples&#x2f;transformations&#x2f;files&#x2f;sales_data.csv</filename>
+    <filename>&#x2f;home&#x2f;bernard&#x2f;Pentahov1&#x2f;design-tools&#x2f;data-integration&#x2f;samples&#x2f;transformations&#x2f;files&#x2f;sales_data.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -608,7 +608,7 @@
         <currency>&#xa3;</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>12</length>
+        <length>16</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -630,7 +630,7 @@
         <currency>&#xa3;</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>8</length>
+        <length>9</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -641,7 +641,7 @@
         <currency>&#xa3;</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>30</length>
+        <length>34</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -652,7 +652,7 @@
         <currency>&#xa3;</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>16</length>
+        <length>17</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -663,7 +663,7 @@
         <currency>&#xa3;</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>40</length>
+        <length>42</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -674,7 +674,7 @@
         <currency>&#xa3;</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>9</length>
+        <length>11</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -696,7 +696,7 @@
         <currency>&#xa3;</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>10</length>
+        <length>13</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -707,7 +707,7 @@
         <currency>&#xa3;</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>8</length>
+        <length>9</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -740,7 +740,7 @@
         <currency>&#xa3;</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>10</length>
+        <length>11</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -751,7 +751,7 @@
         <currency>&#xa3;</currency>
         <decimal>.</decimal>
         <group>,</group>
-        <length>9</length>
+        <length>10</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -764,14 +764,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
-      <yloc>112</yloc>
+      <xloc>288</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
     </step>
 
   <step>
-    <name>Write to Database</name>
+    <name>Table output</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -781,9 +781,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>sample_data</connection>
+    <connection>sampledata</connection>
     <schema/>
-    <table>sales</table>
+    <table>Sales.</table>
     <commit>1000</commit>
     <truncate>Y</truncate>
     <ignore_errors>N</ignore_errors>
@@ -808,8 +808,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
-      <yloc>112</yloc>
+      <xloc>448</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
     </step>

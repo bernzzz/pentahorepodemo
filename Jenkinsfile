@@ -11,7 +11,9 @@ pipeline {
         parallel(
           "job1": {
             echo 'hello world'
-            echo 'fuck you'
+            sh '''#!/bin/bash
+exit 1
+'''
             
           },
           "job2": {

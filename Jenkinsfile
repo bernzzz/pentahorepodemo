@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('upload') {
       steps {
-        echo 'uploading'
+        sh '''/home/bernard/Pentaho/design-tools/data-integration/kitchen.sh -file=/home/bernard/.jenkins/workspace/pentaho/job1.kjb
+'''
       }
     }
     stage('Transform') {
@@ -11,19 +12,21 @@ pipeline {
         parallel(
           "job1": {
             echo 'hello world'
-            retry(count: 2) {
+            retry(count: 1) {
               sh '''#!/bin/bash
-exit 1'''
+/home/bernard/Pentaho/design-tools/data-integration/kitchen.sh -file=/home/bernard/.jenkins/workspace/pentaho/job1.kjb'''
             }
             
             
           },
           "job2": {
             echo 'hello world'
+            sh '/home/bernard/Pentaho/design-tools/data-integration/kitchen.sh -file=/home/bernard/.jenkins/workspace/pentaho/job2.kjb'
             
           },
           "job3": {
             echo 'hi'
+            sh '/home/bernard/Pentaho/design-tools/data-integration/kitchen.sh -file=/home/bernard/.jenkins/workspace/pentaho/job3.kjb'
             
           }
         )
@@ -32,6 +35,7 @@ exit 1'''
     stage('load') {
       steps {
         echo 'i am done'
+        sh '/home/bernard/Pentaho/design-tools/data-integration/kitchen.sh -file=/home/bernard/.jenkins/workspace/pentaho/job1.kjb'
       }
     }
   }

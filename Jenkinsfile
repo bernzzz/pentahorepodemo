@@ -1,16 +1,33 @@
 pipeline {
   agent any
   stages {
-    stage('Upload file to HDFS') {
+    stage('upload') {
       steps {
-        sh '''#!/bin/bash
-/home/bernard/Pentaho/design-tools/data-integration/kitchen.sh -file=/home/bernard/.jenkins/workspace/pentaho/job1.kjb'''
+        echo 'uploading'
       }
     }
-    stage('Aspen Transform') {
+    stage('Transform') {
       steps {
-        sh '''#!/bin/bash
-/home/bernard/Pentaho/design-tools/data-integration/kitchen.sh -file=/home/bernard/.jenkins/workspace/pentaho/job2.kjb'''
+        parallel(
+          "job1": {
+            echo 'hello world'
+            echo 'fuck you'
+            
+          },
+          "job2": {
+            echo 'hello world'
+            
+          },
+          "job3": {
+            echo 'hi'
+            
+          }
+        )
+      }
+    }
+    stage('load') {
+      steps {
+        echo 'i am done'
       }
     }
   }

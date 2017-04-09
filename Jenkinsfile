@@ -11,9 +11,11 @@ pipeline {
         parallel(
           "job1": {
             echo 'hello world'
-            sh '''#!/bin/bash
-exit 1
-'''
+            retry(count: 2) {
+              sh '''#!/bin/bash
+exit 1'''
+            }
+            
             
           },
           "job2": {
